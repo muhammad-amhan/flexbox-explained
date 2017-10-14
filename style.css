@@ -1,0 +1,103 @@
+
+/*
+Hi, here I have explained all you need to know to start implementing FLEX BOX into your projects.
+It's a very AMAZING feature arrived i the latest 
+
+*/
+
+
+body {
+    font-family: arial;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    margin: 30px auto;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.container-1 div, 
+.container-2 div, 
+.container-3 div {
+    border: 1px solid #ccc;
+    padding: 0 10px;
+}
+
+.container-1-box,
+.container-2-box,
+.container-3-box {
+    margin-top: 10px;
+}
+
+.box-1 {
+    /* Takes up twice the size it has, which results in making other elements width smaller */
+    flex: 2;
+    /* changes the order ot the elements, if box 1 is first, now its the second element in the row, this saves you from editing the html */
+    order: 2;
+}
+
+.box-2 {
+    flex: 1;
+    order: 3;
+}
+
+.box-3 {
+    flex: 1;
+    order: 1;
+}
+
+.container-2-box {
+    /* width: 25%; */
+    /* you can use width: 25%; BUT when you're dealing with flex box, you might as well use flex-basis to set the width for the boxes, it works exactly the same as width but this is more specified to flex box */
+    flex-basis: 25%;
+}
+
+.container-3-box {
+    flex-basis: 15%;
+}
+
+
+/* there is a reason I didn't place this in the media query */
+/* in this container there is 6 boxes beside each other, if we want them to drop to the next line when the sceen gets narrower, just as if you used float, then we can use wrap */
+.container-3 {
+    margin-top: 40px;
+    display: flex;
+    /* this will allow the elements to drop to the next line when the screen doesnt fit all elements */
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+/* this will help making it responsive on mobile devices where the eleements will drop vertically */
+@media(min-width: 758px) {
+    .container-1 {
+        /* makes the elements display inline occupying the container width in equal space */
+        display: flex;
+        /* box 1 is by default the same height as the rest, if you want box 1 height to fit its content we use flex-start or flex-end or center not just to make the box fits the content but also to change the position to the start of the row or bottom of the row or center (it works exactly like align right or center or left in case of a column) */
+        align-items: flex-start;  /* stretch is the default, flex-end, center */
+        /* you can make the flex box in a column rather than rows by setting flex-direction: column; but we need row for this example */
+    
+    }
+    
+    .container-2 {
+        display: flex;
+        /*will align all items to the center */
+        align-items: center;
+        /* this is helful to add a margin between boxes when a specified width is used for the boxes, it adds an equal margin space in between the elements only to occupy the entire container */
+        justify-content: space-between; /* if you want to add some margin to the side too, then space-around can be used */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
